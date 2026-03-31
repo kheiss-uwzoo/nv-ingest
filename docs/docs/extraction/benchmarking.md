@@ -3,9 +3,8 @@
 A configurable, dataset-agnostic testing framework for end-to-end validation of nv-ingest pipelines. This framework uses structured YAML configuration for type safety, validation, and parameter management.
 
 ## Dataset Prerequisites
-
     
-Before you run any benchmarking or evaluation tests, you must first download the benchmark datasets. The three primary datasets used in nv-ingest benchmarking and evaluations are the following:
+Before you run any benchmarking or evaluation tests, you must first download the benchmark datasets. The three primary datasets used in nv-ingest benchmarking and evaluations include:
     
 - **Bo20** - 20 PDFs for quick testing
 - **Bo767** - 767 PDFs for comprehensive benchmarking
@@ -13,7 +12,7 @@ Before you run any benchmarking or evaluation tests, you must first download the
     
 ### How to Download the Datasets
     
-Use the [Digital Corpora Download Notebook](https://github.com/NVIDIA/nv-ingest/blob/main/evaluation/digital_corpora_download.ipynb) to download these datasets from the public Digital Corpora source. This notebook provides automated download functions that do the following:
+Use the [Digital Corpora Download Notebook](https://github.com/NVIDIA/nv-ingest/blob/main/evaluation/digital_corpora_download.ipynb) to download these datasets from the public Digital Corpora source. This notebook provides automated download functions that enable the following:
     
 - Download PDFs directly from Digital Corpora's public repository.
 - Support all three dataset sizes (Bo20, Bo767, Bo10k).
@@ -58,6 +57,8 @@ uv run nv-ingest-harness-run --case=e2e --dataset=bo767 --managed
 The framework uses a structured YAML file for all test configuration. Configuration is organized into logical sections:
 
 #### Active Configuration
+
+The api_version v2 is the default configuration. Use v1 only when it is necessary to explicitly override this default value.
 
 The `active` section contains your current test settings. Edit these values directly for your test runs:
 
