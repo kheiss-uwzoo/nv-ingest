@@ -1,0 +1,3329 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="NeMo Retriever documentation — library, deployment, and operations guides">
+      
+      
+      
+        <link rel="canonical" href="https://kheiss-uwzoo.github.io/nv-ingest/extraction/troubleshooting/troubleshoot/">
+      
+      
+        <link rel="prev" href="../evaluate-on-your-data/">
+      
+      
+        <link rel="next" href="../faq/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Troubleshoot - NeMo Retriever Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/_mkdocstrings.css">
+    
+      <link rel="stylesheet" href="../../../assets/css/color-schemes.css">
+    
+      <link rel="stylesheet" href="../../../assets/css/fonts.css">
+    
+      <link rel="stylesheet" href="../../../assets/css/custom-material.css">
+    
+      <link rel="stylesheet" href="../../../assets/css/jupyter-themes.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="light" data-md-color-primary="custom" data-md-color-accent="lime">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#troubleshoot-nemo-retriever-library" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="NeMo Retriever Documentation" class="md-header__button md-logo" aria-label="NeMo Retriever Documentation" data-md-component="logo">
+      
+  
+  <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 164 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g>
+        <path d="M160.352,24.069L160.352,23.62L160.64,23.62C160.797,23.62 161.011,23.632 161.011,23.824C161.011,24.032 160.901,24.069 160.715,24.069L160.352,24.069M160.352,24.384L160.544,24.384L160.991,25.168L161.481,25.168L160.987,24.352C161.242,24.333 161.452,24.212 161.452,23.868C161.452,23.441 161.157,23.303 160.659,23.303L159.938,23.303L159.938,25.168L160.352,25.168L160.352,24.384M162.45,24.238C162.45,23.143 161.599,22.508 160.65,22.508C159.695,22.508 158.845,23.143 158.845,24.238C158.845,25.333 159.695,25.971 160.65,25.971C161.598,25.971 162.45,25.333 162.45,24.238M161.93,24.238C161.93,25.036 161.343,25.572 160.65,25.572L160.65,25.566C159.937,25.572 159.361,25.036 159.361,24.238C159.361,23.441 159.938,22.907 160.65,22.907C161.344,22.907 161.93,23.441 161.93,24.238"/>
+        <path d="M96.374,5.707L96.376,25.367L101.928,25.367L101.928,5.707L96.374,5.707ZM52.697,5.681L52.697,25.367L58.3,25.367L58.3,10.086L62.67,10.1C64.107,10.1 65.1,10.445 65.793,11.184C66.672,12.12 67.03,13.628 67.03,16.389L67.03,25.367L72.457,25.367L72.457,14.49C72.457,6.727 67.509,5.68 62.668,5.68L52.698,5.68L52.697,5.681ZM105.314,5.708L105.314,25.367L114.32,25.367C119.118,25.367 120.684,24.569 122.377,22.78C123.575,21.524 124.348,18.766 124.348,15.753C124.348,12.99 123.693,10.525 122.551,8.99C120.494,6.245 117.531,5.708 113.106,5.708L105.314,5.708ZM110.822,9.988L113.209,9.988C116.672,9.988 118.912,11.544 118.912,15.579C118.912,19.616 116.672,21.171 113.209,21.171L110.822,21.171L110.822,9.988ZM88.369,5.708L83.735,21.288L79.295,5.709L73.302,5.708L79.642,25.367L87.645,25.367L94.036,5.708L88.369,5.708ZM126.932,25.367L132.485,25.367L132.485,5.709L126.93,5.708L126.932,25.367ZM142.496,5.715L134.743,25.36L140.218,25.36L141.445,21.888L150.62,21.888L151.781,25.36L157.725,25.36L149.913,5.714L142.496,5.715ZM146.1,9.3L149.464,18.504L142.631,18.504L146.101,9.3L146.1,9.3Z"/>
+        <path d="M16.889,8.985L16.889,6.28C17.151,6.26 17.417,6.247 17.687,6.238C25.087,6.006 29.942,12.597 29.942,12.597C29.942,12.597 24.698,19.879 19.076,19.879C18.333,19.882 17.594,19.764 16.889,19.529L16.889,11.325C19.769,11.673 20.349,12.945 22.081,15.833L25.933,12.585C25.933,12.585 23.121,8.897 18.381,8.897C17.866,8.897 17.373,8.933 16.889,8.985ZM16.889,0.047L16.889,4.09C17.154,4.069 17.42,4.052 17.687,4.042C27.977,3.696 34.682,12.482 34.682,12.482C34.682,12.482 26.982,21.846 18.959,21.846C18.224,21.846 17.535,21.778 16.889,21.663L16.889,24.161C17.442,24.231 18.015,24.273 18.613,24.273C26.078,24.273 31.477,20.461 36.705,15.948C37.572,16.642 41.121,18.331 41.85,19.071C36.879,23.231 25.295,26.586 18.727,26.586C18.113,26.584 17.5,26.552 16.889,26.49L16.889,30L45.264,30L45.264,0.047L16.889,0.047ZM16.889,19.529L16.889,21.662C9.984,20.432 8.067,13.254 8.067,13.254C8.067,13.254 11.383,9.58 16.889,8.985L16.889,11.325L16.878,11.324C13.988,10.977 11.731,13.677 11.731,13.677C11.731,13.677 12.996,18.221 16.889,19.529ZM4.625,12.943C4.625,12.943 8.717,6.903 16.889,6.28L16.889,4.088C7.838,4.815 0,12.48 0,12.48C0,12.48 4.439,25.313 16.889,26.488L16.889,24.16C7.753,23.011 4.625,12.943 4.625,12.943Z" style="fill:rgb(118,185,0);"/>
+    </g>
+</svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            NeMo Retriever Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Troubleshoot
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="light" data-md-color-primary="custom" data-md-color-accent="lime"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="dark" data-md-color-primary="custom" data-md-color-accent="lime"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/NVIDIA/NeMo-Retriever" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    NVIDIA/NeMo-Retriever
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="NeMo Retriever Documentation" class="md-nav__button md-logo" aria-label="NeMo Retriever Documentation" data-md-component="logo">
+      
+  
+  <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 164 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g>
+        <path d="M160.352,24.069L160.352,23.62L160.64,23.62C160.797,23.62 161.011,23.632 161.011,23.824C161.011,24.032 160.901,24.069 160.715,24.069L160.352,24.069M160.352,24.384L160.544,24.384L160.991,25.168L161.481,25.168L160.987,24.352C161.242,24.333 161.452,24.212 161.452,23.868C161.452,23.441 161.157,23.303 160.659,23.303L159.938,23.303L159.938,25.168L160.352,25.168L160.352,24.384M162.45,24.238C162.45,23.143 161.599,22.508 160.65,22.508C159.695,22.508 158.845,23.143 158.845,24.238C158.845,25.333 159.695,25.971 160.65,25.971C161.598,25.971 162.45,25.333 162.45,24.238M161.93,24.238C161.93,25.036 161.343,25.572 160.65,25.572L160.65,25.566C159.937,25.572 159.361,25.036 159.361,24.238C159.361,23.441 159.938,22.907 160.65,22.907C161.344,22.907 161.93,23.441 161.93,24.238"/>
+        <path d="M96.374,5.707L96.376,25.367L101.928,25.367L101.928,5.707L96.374,5.707ZM52.697,5.681L52.697,25.367L58.3,25.367L58.3,10.086L62.67,10.1C64.107,10.1 65.1,10.445 65.793,11.184C66.672,12.12 67.03,13.628 67.03,16.389L67.03,25.367L72.457,25.367L72.457,14.49C72.457,6.727 67.509,5.68 62.668,5.68L52.698,5.68L52.697,5.681ZM105.314,5.708L105.314,25.367L114.32,25.367C119.118,25.367 120.684,24.569 122.377,22.78C123.575,21.524 124.348,18.766 124.348,15.753C124.348,12.99 123.693,10.525 122.551,8.99C120.494,6.245 117.531,5.708 113.106,5.708L105.314,5.708ZM110.822,9.988L113.209,9.988C116.672,9.988 118.912,11.544 118.912,15.579C118.912,19.616 116.672,21.171 113.209,21.171L110.822,21.171L110.822,9.988ZM88.369,5.708L83.735,21.288L79.295,5.709L73.302,5.708L79.642,25.367L87.645,25.367L94.036,5.708L88.369,5.708ZM126.932,25.367L132.485,25.367L132.485,5.709L126.93,5.708L126.932,25.367ZM142.496,5.715L134.743,25.36L140.218,25.36L141.445,21.888L150.62,21.888L151.781,25.36L157.725,25.36L149.913,5.714L142.496,5.715ZM146.1,9.3L149.464,18.504L142.631,18.504L146.101,9.3L146.1,9.3Z"/>
+        <path d="M16.889,8.985L16.889,6.28C17.151,6.26 17.417,6.247 17.687,6.238C25.087,6.006 29.942,12.597 29.942,12.597C29.942,12.597 24.698,19.879 19.076,19.879C18.333,19.882 17.594,19.764 16.889,19.529L16.889,11.325C19.769,11.673 20.349,12.945 22.081,15.833L25.933,12.585C25.933,12.585 23.121,8.897 18.381,8.897C17.866,8.897 17.373,8.933 16.889,8.985ZM16.889,0.047L16.889,4.09C17.154,4.069 17.42,4.052 17.687,4.042C27.977,3.696 34.682,12.482 34.682,12.482C34.682,12.482 26.982,21.846 18.959,21.846C18.224,21.846 17.535,21.778 16.889,21.663L16.889,24.161C17.442,24.231 18.015,24.273 18.613,24.273C26.078,24.273 31.477,20.461 36.705,15.948C37.572,16.642 41.121,18.331 41.85,19.071C36.879,23.231 25.295,26.586 18.727,26.586C18.113,26.584 17.5,26.552 16.889,26.49L16.889,30L45.264,30L45.264,0.047L16.889,0.047ZM16.889,19.529L16.889,21.662C9.984,20.432 8.067,13.254 8.067,13.254C8.067,13.254 11.383,9.58 16.889,8.985L16.889,11.325L16.878,11.324C13.988,10.977 11.731,13.677 11.731,13.677C11.731,13.677 12.996,18.221 16.889,19.529ZM4.625,12.943C4.625,12.943 8.717,6.903 16.889,6.28L16.889,4.088C7.838,4.815 0,12.48 0,12.48C0,12.48 4.439,25.313 16.889,26.488L16.889,24.16C7.753,23.011 4.625,12.943 4.625,12.943Z" style="fill:rgb(118,185,0);"/>
+    </g>
+</svg>
+
+    </a>
+    NeMo Retriever Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/NVIDIA/NeMo-Retriever" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    NVIDIA/NeMo-Retriever
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../about/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_1" id="__nav_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    About
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/concepts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Key concepts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/agentic-retrieval-concept/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agentic retrieval (concept)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/releasenotes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Release notes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../get-started/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Get started
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Get started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../get-started/prerequisites-support-matrix/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pre-Requisites & Support Matrix
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../get-started/api-keys/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Authentication and API keys
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../get-started/retriever-cli-quickstart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quickstart: retriever CLI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://github.com/NVIDIA/NeMo-Retriever/tree/26.08.1/nemo_retriever" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quickstart: NeMo Retriever Library
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../ingest/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ingest and extract content
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ingest and extract content
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ingest/workflow-document-ingestion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflow: Ingest documents into a searchable VDB collection
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ingest/audio-video/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflow: Audio & video ingestion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ingest/multimodal-extraction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multimodal extraction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ingest/embedding/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Embeddings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../collections/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Search and manage collections
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Search and manage collections
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../collections/vdbs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vector databases
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../collections/workflow-agentic-retrieval/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflow: Agentic retrieval
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/collection-management-api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Collection management API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../deploy/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deploy and operate
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Deploy and operate
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deploy/deployment-options/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Compare deployment options
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://github.com/NVIDIA/NeMo-Retriever/blob/26.08.1/nemo_retriever/helm/openshift.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OpenShift deployment (Helm)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://github.com/NVIDIA/NeMo-Retriever/tree/26.08.1/nemo_retriever/helm" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Helm chart (Kubernetes)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://github.com/NVIDIA/NeMo-Retriever/blob/26.08.1/nemo_retriever/docker.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Docker service image
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deploy/ray-logging/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ray and distributed ingest
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deploy/performance_guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch resource sizing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../customize/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Customize and extend
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Customize and extend
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../customize/customize-extend/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Customize & extend
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../reference/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7" id="__nav_7_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/nemo-retriever-api-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://github.com/NVIDIA/NeMo-Retriever/tree/26.08.1/nemo_retriever/docs/cli" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLI reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/environment-config/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Environment variables
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/content-metadata/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Metadata reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_8" id="__nav_8_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Troubleshooting
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../evaluate-on-your-data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Evaluate on your own documents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshoot
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshoot
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#python-api-error-triage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Python API error triage
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Python API error triage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#coverage-limits-of-the-raise-error-policy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Coverage limits of the raise error policy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#error-signals-and-first-response" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Error signals and first response
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#representative-extraction-paths" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Representative extraction paths
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#collect-diagnostics-safely" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Collect diagnostics safely
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cant-process-long-non-language-text-strings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Can't process long, non-language text strings
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cant-process-malformed-input-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Can't process malformed input files
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#audio-or-video-extraction-reports-missing-media-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Audio or video extraction reports missing media dependencies
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cant-start-new-thread-error" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Can't start new thread error
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#out-of-memory-oom-error-when-processing-large-datasets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Out-of-Memory (OOM) Error when Processing Large Datasets
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#embedding-service-fails-unsupported-batch-size" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Embedding service fails to start with an unsupported batch size error
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modulenotfounderror-no-module-named-open-clip-when-using-nemotron-parse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ModuleNotFoundError: No module named open_clip when using nemotron_parse
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extract-method-nemotron-parse-doesnt-support-image-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Extract method nemotron-parse doesn't support image files
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nemotron-parse-model-endpoint-mismatch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Nemotron Parse model and endpoint mismatch
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hosted-page-elements-nim-image-size-limits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hosted Page Elements NIM image size limits
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Hosted Page Elements NIM image size limits">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nemo-retriever-library-pipeline-users" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        NeMo Retriever Library pipeline users
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#direct-page-elements-nim-api-calls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Direct Page Elements NIM API calls
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#too-many-open-files-error" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Too many open files error
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#triton-server-info-messages-incorrectly-logged-as-errors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Triton server INFO messages incorrectly logged as errors
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lancedb-concurrent-index-creation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LanceDB index creation fails during concurrent Helm ingestion
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vectordb-write-not-acknowledged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ingest fails with a VectorDB write error
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#helm-pending-pvcs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Helm install succeeds but PersistentVolumeClaims stay Pending
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#helm-pending-gpus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Core NIM pods stay Pending for GPU
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#helm-split-topology-startup-deadlock" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Split topology Helm install or upgrade times out with Deployments not ready
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#helm-nimcache-modelpuller-immutable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Helm upgrade fails when changing a NIM image repository or tag
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#helm-nim-secret-names" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        NIMCache or NIMService still uses ngc-secret after a global Secret rename
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#agentic-auto-tool-choice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Agentic retrieval fails with auto tool choice HTTP 400
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-topics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Related Topics
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_9" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../resources/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resources
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_9" id="__nav_9_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Resources
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/contributing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contributing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://github.com/NVIDIA/NeMo-Retriever/blob/26.08.1/examples/README.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Starter kits
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../license/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OSS licences
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#python-api-error-triage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Python API error triage
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Python API error triage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#coverage-limits-of-the-raise-error-policy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Coverage limits of the raise error policy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#error-signals-and-first-response" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Error signals and first response
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#representative-extraction-paths" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Representative extraction paths
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#collect-diagnostics-safely" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Collect diagnostics safely
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cant-process-long-non-language-text-strings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Can't process long, non-language text strings
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cant-process-malformed-input-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Can't process malformed input files
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#audio-or-video-extraction-reports-missing-media-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Audio or video extraction reports missing media dependencies
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cant-start-new-thread-error" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Can't start new thread error
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#out-of-memory-oom-error-when-processing-large-datasets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Out-of-Memory (OOM) Error when Processing Large Datasets
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#embedding-service-fails-unsupported-batch-size" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Embedding service fails to start with an unsupported batch size error
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modulenotfounderror-no-module-named-open-clip-when-using-nemotron-parse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ModuleNotFoundError: No module named open_clip when using nemotron_parse
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extract-method-nemotron-parse-doesnt-support-image-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Extract method nemotron-parse doesn't support image files
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nemotron-parse-model-endpoint-mismatch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Nemotron Parse model and endpoint mismatch
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hosted-page-elements-nim-image-size-limits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hosted Page Elements NIM image size limits
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Hosted Page Elements NIM image size limits">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nemo-retriever-library-pipeline-users" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        NeMo Retriever Library pipeline users
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#direct-page-elements-nim-api-calls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Direct Page Elements NIM API calls
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#too-many-open-files-error" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Too many open files error
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#triton-server-info-messages-incorrectly-logged-as-errors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Triton server INFO messages incorrectly logged as errors
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lancedb-concurrent-index-creation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LanceDB index creation fails during concurrent Helm ingestion
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vectordb-write-not-acknowledged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ingest fails with a VectorDB write error
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#helm-pending-pvcs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Helm install succeeds but PersistentVolumeClaims stay Pending
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#helm-pending-gpus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Core NIM pods stay Pending for GPU
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#helm-split-topology-startup-deadlock" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Split topology Helm install or upgrade times out with Deployments not ready
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#helm-nimcache-modelpuller-immutable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Helm upgrade fails when changing a NIM image repository or tag
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#helm-nim-secret-names" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        NIMCache or NIMService still uses ngc-secret after a global Secret rename
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#agentic-auto-tool-choice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Agentic retrieval fails with auto tool choice HTTP 400
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-topics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Related Topics
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="troubleshoot-nemo-retriever-library">Troubleshoot NeMo Retriever Library<a class="headerlink" href="#troubleshoot-nemo-retriever-library" title="Permanent link">&para;</a></h1>
+<p>Use this documentation to troubleshoot issues that arise when you use <a href="../../about/overview/">NeMo Retriever Library</a>.</p>
+<h2 id="python-api-error-triage">Python API error triage<a class="headerlink" href="#python-api-error-triage" title="Permanent link">&para;</a></h2>
+<p>NeMo Retriever Library does not assign product-specific numeric error codes to
+each extraction method. The Python API surfaces Python exception types,
+row-level failure records, and HTTP or gRPC statuses from the service or
+upstream NIM. Treat the exception type, failing stage, upstream status, and
+response detail together as the error identifier.</p>
+<p>The current graph API enriches <code>GraphIngestionError</code> for explicitly configured
+Page Elements, OCR, Table Structure, Nemotron Parse, and embedding endpoints.
+When the upstream payload contains an HTTP status, the message includes the
+stage, configured URL, and status. For example:</p>
+<div class="highlight"><pre><span></span><code>Graph ingestion detected row-level errors from an explicitly configured
+remote NIM endpoint. row 0, column ocr
+[stage=OCR NIM url=https://example.invalid/v1/infer http=503], path error: ...
+Troubleshooting: OCR NIM ... returned a 5xx server error ...
+</code></pre></div>
+<p>This enrichment is not a new error-code namespace. The <code>503</code> in this example
+is the upstream HTTP status. Exception wording and upstream response bodies are
+not stable API fields and should not be parsed programmatically.</p>
+<p>In many row-level payloads, the HTTP status appears only inside
+<code>error.message</code> (for example <code>HTTP 503 from ...</code>), not as a separate
+<code>status_code</code> field. Inspect <code>exc.records</code> or the failing DataFrame column
+when troubleshooting. The <code>error</code> value can be a nested object or a string.</p>
+<h3 id="coverage-limits-of-the-raise-error-policy">Coverage limits of the raise error policy<a class="headerlink" href="#coverage-limits-of-the-raise-error-policy" title="Permanent link">&para;</a></h3>
+<p><code>error_policy="raise"</code> scans only remote NIM stages with an explicitly
+configured invoke URL: Page Elements, OCR, Table Structure, Nemotron Parse,
+and embedding. It does not automatically raise for:</p>
+<ul>
+<li>Local-only pipelines (<code>pdfium</code> without remote URLs), even when rows contain
+  <code>metadata.error</code> or column-level error payloads.</li>
+<li>Caption or remote VLM stages. Missing credentials fail at actor setup;
+  inference failures can abort the entire ingest.</li>
+<li>Audio or video ASR over gRPC or HTTP. Failures can drop individual rows and
+  log warnings instead of raising <code>GraphIngestionError</code>.</li>
+</ul>
+<p>For those paths, use <code>error_policy="collect"</code>, pass <code>return_failures=True</code>, or
+inspect row columns and service logs directly.</p>
+<h3 id="error-signals-and-first-response">Error signals and first response<a class="headerlink" href="#error-signals-and-first-response" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Signal</th>
+<th>Typical meaning</th>
+<th>L1/L2 response</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ValueError</code> or Pydantic validation error before execution</td>
+<td>An unsupported run mode, parameter value, protocol, or parameter combination</td>
+<td>Compare the call with the current <a href="../../reference/nemo-retriever-api-reference/">Python API reference</a>. Remove unknown parameters and reproduce with the smallest valid pipeline.</td>
+</tr>
+<tr>
+<td><code>ImportError</code>, <code>ModuleNotFoundError</code>, or a missing-dependency <code>RuntimeError</code></td>
+<td>The selected local extraction path requires a package or executable that is not installed</td>
+<td>Install the documented package extra or system dependency. Confirm that the Python environment running the worker, not only the client shell, contains it.</td>
+</tr>
+<tr>
+<td><code>GraphIngestionError</code> with no HTTP status</td>
+<td>The named remote stage returned a row-level error, its error payload omitted a status, or the endpoint was unreachable</td>
+<td>Check DNS, routing, TLS, the endpoint URL, and the NIM readiness endpoint from the worker or service pod. Inspect <code>exc.records</code> after removing secrets and document content.</td>
+</tr>
+<tr>
+<td>HTTP <code>401</code> or <code>403</code> from a NIM</td>
+<td>Missing, expired, or unauthorized credentials</td>
+<td>Verify <code>NVIDIA_API_KEY</code>, <code>NGC_API_KEY</code>, or the stage-specific credential in the environment that makes the request. Do not attach API keys to a support case.</td>
+</tr>
+<tr>
+<td>HTTP <code>403</code> from the Retriever service</td>
+<td>Authentication failure or a deployment policy that disallows the requested endpoint, stage, sink, or override</td>
+<td>Read the response <code>detail</code>. Verify the service token and compare the requested pipeline with <code>/v1/ingest/pipeline-config</code>.</td>
+</tr>
+<tr>
+<td>HTTP <code>404</code> or <code>410</code> while opening a service ingest job</td>
+<td>The Python SDK and Retriever service can be on incompatible API versions</td>
+<td>A current client raises <code>RetrieverServiceCompatibilityError</code>. Align the Python package, service image, and Helm chart versions.</td>
+</tr>
+<tr>
+<td>Other HTTP <code>4xx</code></td>
+<td>The upstream service rejected the request</td>
+<td>Check file type, rendered page or image size, model name, endpoint path, and request schema. For <code>413</code> or <code>422</code>, reduce the payload or image size and verify the endpoint's input limits.</td>
+</tr>
+<tr>
+<td>HTTP <code>429</code></td>
+<td>The remote service is rate-limiting requests</td>
+<td>Reduce concurrency or batch size and retry with backoff. Escalate only if throttling persists within the service quota.</td>
+</tr>
+<tr>
+<td>HTTP <code>5xx</code>, including <code>503</code></td>
+<td>The upstream NIM is unavailable, overloaded, not ready, or failed during inference</td>
+<td>Check readiness, pod restarts, GPU memory, server logs, and request volume. Retry a minimal input after the NIM is healthy.</td>
+</tr>
+<tr>
+<td>Timeout, connection reset, DNS, TLS, or gRPC transport error</td>
+<td>The client could not complete transport to the service or NIM</td>
+<td>Test connectivity from the process or pod that runs the stage. Verify protocol, port, certificate trust, proxy, and network policy. Preserve the gRPC status and details when present.</td>
+</tr>
+<tr>
+<td>A per-document entry in <code>ServiceIngestResult.failures</code></td>
+<td>Upload or pipeline processing failed after a service job was created</td>
+<td>Correlate the document ID with the job ID and service logs. Other documents in the same result can still have succeeded.</td>
+</tr>
+<tr>
+<td>Successful ingest with fewer rows than inputs (caption or ASR enabled)</td>
+<td>Caption inference failed before row collection, or ASR dropped failed rows and logged warnings</td>
+<td>Re-run with logging enabled. For caption, verify endpoint credentials and payload limits. For ASR, verify gRPC endpoint, <code>function_id</code>, and <code>NVIDIA_API_KEY</code>.</td>
+</tr>
+<tr>
+<td>OOM, worker exit, or pod restart</td>
+<td>Host or GPU resources were exhausted, or an orchestrator terminated the worker</td>
+<td>Reduce batch size or concurrency, use smaller document groups, and inspect host, Ray, Kubernetes, and NIM resource telemetry.</td>
+</tr>
+<tr>
+<td><code>Infeasible Ray CPU/GPU plan</code></td>
+<td>Explicit worker counts or node overrides, including required Ray Data source capacity for filesystem inputs, exceed resources currently available to Ray.</td>
+<td>Reduce <code>*_workers</code> or per-node concurrency, or wait for shared-cluster capacity. Refer to the <a href="../../deploy/performance_guide/">performance guide</a>.</td>
+</tr>
+</tbody>
+</table>
+<p>The service can retry some transient transport, <code>429</code>, and <code>5xx</code> failures.
+Report the final status returned after retries, not an intermediate warning.</p>
+<h3 id="representative-extraction-paths">Representative extraction paths<a class="headerlink" href="#representative-extraction-paths" title="Permanent link">&para;</a></h3>
+<p>Use the failing stage—not only the top-level <code>method</code> value—to select the
+troubleshooting path. A single document can pass through several stages.</p>
+<table>
+<thead>
+<tr>
+<th>API path</th>
+<th>Components that can fail</th>
+<th>Representative signals</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ExtractParams(method="pdfium")</code></td>
+<td>File loading, PDF splitting, PDFium parsing, page rendering; optionally Page Elements and Table Structure when enabled</td>
+<td>Malformed or encrypted input, <code>pypdfium2</code> import failure, local Python exception, or remote-stage <code>GraphIngestionError</code> when an invoke URL is explicitly configured</td>
+</tr>
+<tr>
+<td><code>ExtractParams(method="pdfium_hybrid")</code></td>
+<td>PDFium plus Page Elements, OCR, and optionally Table Structure</td>
+<td>The local PDF signals above, or a row-level/HTTP failure attributed to Page Elements, OCR, or Table Structure</td>
+</tr>
+<tr>
+<td><code>ExtractParams(method="ocr")</code></td>
+<td>Page rendering, Page Elements, and the local or remote OCR backend</td>
+<td>Missing local model dependencies, invalid image payload, authentication/transport status, or OCR row-level failure</td>
+</tr>
+<tr>
+<td><code>ExtractParams(method="nemotron_parse")</code></td>
+<td>PDF rendering and local Nemotron Parse model or configured Nemotron Parse NIM</td>
+<td>Missing <code>open_clip</code>, missing local model configuration, unsupported image input, or Nemotron Parse row-level/HTTP failure</td>
+</tr>
+<tr>
+<td><code>.caption(...)</code></td>
+<td>Local caption model or remote VLM endpoint</td>
+<td><code>ValueError</code> at setup when credentials or endpoint/protocol are invalid; remote inference failures can abort the whole ingest rather than populate a row error column</td>
+</tr>
+<tr>
+<td><code>.embed(...)</code></td>
+<td>Local embedding model or configured embedding NIM</td>
+<td>Model/dependency error, input-size or schema rejection, authentication/transport status, or embedding row-level failure; <code>GraphIngestionError</code> when a remote embed URL is configured</td>
+</tr>
+<tr>
+<td>Audio or video extraction</td>
+<td><code>ffmpeg</code>/<code>ffprobe</code>, media decoding, frame/chunk creation, and local or remote ASR</td>
+<td>Missing executable, malformed media, codec failure, gRPC status, or credential error; ASR failures may omit rows and log warnings instead of raising, so verify logs when output is unexpectedly empty</td>
+</tr>
+</tbody>
+</table>
+<p><code>pdfium</code> itself is primarily a local parser, so a Page Elements, Table
+Structure, OCR, caption, or embedding HTTP status comes from an enabled
+downstream stage rather than from PDFium.</p>
+<h3 id="collect-diagnostics-safely">Collect diagnostics safely<a class="headerlink" href="#collect-diagnostics-safely" title="Permanent link">&para;</a></h3>
+<p>Before escalating, collect the following:</p>
+<ol>
+<li>Package, image or Helm versions, and <code>run_mode</code>.</li>
+<li>Exception class and sanitized message. For <code>GraphIngestionError</code>, include
+   sanitized <code>exc.records</code>. For row-level failures, include <code>stage</code>, <code>type</code>,
+   and <code>message</code> when present.</li>
+<li>Extraction method, enabled stages, and endpoint hostnames with credentials
+   and signed query parameters removed.</li>
+<li>HTTP or gRPC status, response detail, job ID, document ID, trace ID, and
+   timestamp when available.</li>
+<li>Whether the endpoint readiness check succeeds from the worker or service
+   pod.</li>
+<li>A minimal non-confidential reproducing input, or characteristics such as
+   format, page count, dimensions, and size.</li>
+<li>Relevant client, service, Ray, NIM, and Kubernetes logs for the same
+   timestamp.</li>
+</ol>
+<p>Never include API keys, bearer tokens, document contents, or unredacted signed
+URLs in logs or support cases.</p>
+<p>Escalate to NVIDIA L3 when the failure is reproducible on a supported,
+version-aligned configuration after L1 and L2 support has verified input
+validity, credentials, endpoint readiness, connectivity, and resource
+availability. Escalate immediately for repeatable crashes, incorrect
+successful output, or a <code>5xx</code> from a healthy NVIDIA-owned NIM with a minimal
+valid input. Keep configuration, dependency, customer network, quota, and
+malformed-input issues with L1 and L2 support unless the documented behavior
+is incorrect.</p>
+<div class="admonition note">
+<p class="admonition-title">Older NV-Ingest releases</p>
+<p>Error text and result shapes differ by release. NV-Ingest <code>25.4.2</code>
+predates some current enriched diagnostics. Do not assume that a field
+shown in current NeMo Retriever Library output exists in <code>25.4.2</code>; include
+the exact old exception and logs when escalating.</p>
+</div>
+<h2 id="cant-process-long-non-language-text-strings">Can't process long, non-language text strings<a class="headerlink" href="#cant-process-long-non-language-text-strings" title="Permanent link">&para;</a></h2>
+<p>NeMo Retriever Library is designed to process language and language-length strings.
+If you submit a document that contains extremely long, or non-language text strings,
+such as a DNA sequence, errors or unexpected results occur.</p>
+<h2 id="cant-process-malformed-input-files">Can't process malformed input files<a class="headerlink" href="#cant-process-malformed-input-files" title="Permanent link">&para;</a></h2>
+<p>When you run a job you might see errors similar to the following:</p>
+<ul>
+<li>Failed to process the message</li>
+<li>Failed to extract image</li>
+<li>File may be malformed</li>
+<li>Failed to format paragraph</li>
+</ul>
+<p>These errors can occur when your input file is malformed.
+Verify or fix the format of your input file, and try resubmitting your job.</p>
+<h2 id="audio-or-video-extraction-reports-missing-media-dependencies">Audio or video extraction reports missing media dependencies<a class="headerlink" href="#audio-or-video-extraction-reports-missing-media-dependencies" title="Permanent link">&para;</a></h2>
+<p>When you run audio or video extraction, you might see an error similar to one
+of the following:</p>
+<div class="highlight"><pre><span></span><code>Audio extraction requires media dependencies; missing: ffmpeg.
+VideoFrameActor requires media dependencies; missing: ffprobe.
+</code></pre></div>
+<p>The <code>ffmpeg-python</code> wrapper and <code>nemo-retriever[multimedia]</code> do not install the
+<code>ffmpeg</code> or <code>ffprobe</code> binaries the pipeline executes.</p>
+<p>For air-gapped or locked-down clusters, refer to <a href="../../deploy/deployment-options/#air-gapped-deployment">Air-gapped and disconnected deployment</a>.</p>
+<p><strong>Connected environments:</strong></p>
+<p>On Debian or Ubuntu hosts:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt-get<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>--no-install-recommends<span class="w"> </span>ffmpeg
+</code></pre></div>
+<p>For the bundled service container at runtime:</p>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>-e<span class="w"> </span><span class="nv">INSTALL_FFMPEG</span><span class="o">=</span><span class="nb">true</span><span class="w"> </span>nemo-retriever-service
+</code></pre></div>
+<p>For Helm, when package-repo egress and the image security policy allow startup install:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">service</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">installFfmpeg</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+</code></pre></div>
+<p>This path fails with <code>allowPrivilegeEscalation: false</code> or <code>readOnlyRootFilesystem: true</code>.</p>
+<h2 id="cant-start-new-thread-error">Can't start new thread error<a class="headerlink" href="#cant-start-new-thread-error" title="Permanent link">&para;</a></h2>
+<p>In rare cases, when you run a job you might an see an error similar to <code>can't start new thread</code>.
+This error occurs when the maximum number of processes available to a single user is too low.
+To resolve the issue, set or raise the maximum number of processes (<code>-u</code>) by using the <a href="https://ss64.com/bash/ulimit.html">ulimit</a> command.
+Before you change the <code>-u</code> setting, consider the following:</p>
+<ul>
+<li>Apply the <code>-u</code> setting directly to the user (or the environment of the pod or process) that runs your ingest service.</li>
+<li>For <code>-u</code> we recommend 10,000 as a baseline, but you might need to raise or lower it based on your actual usage and system configuration.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="nb">ulimit</span><span class="w"> </span>-u<span class="w"> </span><span class="m">10000</span>
+</code></pre></div>
+<h2 id="out-of-memory-oom-error-when-processing-large-datasets">Out-of-Memory (OOM) Error when Processing Large Datasets<a class="headerlink" href="#out-of-memory-oom-error-when-processing-large-datasets" title="Permanent link">&para;</a></h2>
+<p>When you process a very large dataset with thousands of documents, you might encounter an Out-of-Memory (OOM) error.
+This happens because NeMo Retriever Library materializes extraction results in system memory (RAM) while the job runs.
+If the total size of the results exceeds the available memory, the process fails.</p>
+<p>To reduce memory pressure, try one or more of the following:</p>
+<ul>
+<li>Process documents in smaller batches instead of submitting the entire corpus in one job.</li>
+<li>Route outputs to a sink (for example, <code>.vdb_upload(...)</code>, <code>.webhook(...)</code>, or <code>.store(...)</code>) so results are written out instead of held in memory until the job finishes.</li>
+<li>In <code>run_mode="service"</code>, pass <code>return_results=False</code> to <code>.ingest(...)</code> when you do not need the full result payload returned to the client. For parameter details, refer to the <a href="../../reference/nemo-retriever-api-reference/">Python API guide</a>.</li>
+<li>Increase available host or pod memory for the ingest workload.</li>
+</ul>
+<h2 id="embedding-service-fails-unsupported-batch-size">Embedding service fails to start with an unsupported batch size error<a class="headerlink" href="#embedding-service-fails-unsupported-batch-size" title="Permanent link">&para;</a></h2>
+<p>On some GPUs, for example RTX 6000, a self-hosted embedding NIM can fail
+during startup with an error similar to the following:</p>
+<div class="highlight"><pre><span></span><code>ValueError: Configured max_batch_size (30) is larger than the model&#39;s supported max_batch_size (3).
+</code></pre></div>
+<p>This error comes from the embedding NIM process. NeMo Retriever Library does
+not read <code>EMBEDDER_BATCH_SIZE</code>. Setting that variable in the SDK, CLI, or
+Helm process environment does not change NIM startup.</p>
+<p>Configure the embedding NIM container instead. Use the supported maximum
+from the error message. In this example, that value is <code>3</code>.</p>
+<p><strong>Helm:</strong> The default chart deploys <code>nemotron-3-embed-1b:2.2.2</code>
+as <code>nimOperator.vlm_embed</code>. For that image, set <code>NIM_PIPELINE_MAX_BATCH_SIZE</code>
+on <code>nimOperator.vlm_embed.env</code>. That list replaces the chart default, so
+keep the default entries. The following example keeps those defaults, leaves
+the optional performance mode disabled, and adds the batch-size variable.
+Uncomment <code>NIM_PERFORMANCE_MODE</code> only if your NIM build supports it for this
+SKU:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">nimOperator</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">vlm_embed</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">env</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">NIM_HTTP_API_PORT</span>
+<span class="w">        </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;8000&quot;</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">NIM_TRITON_LOG_VERBOSE</span>
+<span class="w">        </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;1&quot;</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">OMP_NUM_THREADS</span>
+<span class="w">        </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;1&quot;</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">NIM_ENGINE_COUNT</span>
+<span class="w">        </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;1&quot;</span>
+<span class="w">      </span><span class="c1"># Optional: enable if your NIM build supports throughput mode for this SKU.</span>
+<span class="w">      </span><span class="c1"># - name: NIM_PERFORMANCE_MODE</span>
+<span class="w">      </span><span class="c1">#   value: &quot;1&quot;</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">NIM_PIPELINE_MAX_BATCH_SIZE</span>
+<span class="w">        </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;3&quot;</span>
+</code></pre></div>
+<p><strong>Development Compose:</strong> The default <code>nim-embedding</code> image is also <code>nemotron-3-embed-1b:2.2.2</code>. Add <code>NIM_PIPELINE_MAX_BATCH_SIZE</code> to its existing environment mapping in <code>nemo_retriever/dev/compose/service-mode.compose.yaml</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">NIM_PIPELINE_MAX_BATCH_SIZE</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;3&quot;</span>
+</code></pre></div>
+<p><strong>Library or CLI with a remote NIM:</strong> Set the image-specific batch-size
+variable on the NIM container or NIMService that serves your embed URL.
+<code>--embed-batch-size</code> and <code>.embed(inference_batch_size=...)</code> batch requests
+after the NIM is running. They do not start the NIM.</p>
+<p><strong>NVIDIA-hosted Build endpoints:</strong> NVIDIA operates the NIM. This startup
+error does not apply.</p>
+<p>For image-specific variables, refer to
+<a href="https://docs.nvidia.com/nim/nemo-retriever/text-embedding/latest/troubleshoot.html">Troubleshoot NVIDIA NeMo Retriever Embedding NIM</a>
+and
+<a href="https://docs.nvidia.com/nim/nemo-retriever/text-embedding/latest/environment-variables.html">Environment Variables for NVIDIA NeMo Retriever Embedding NIM</a>.
+For the Helm env list contract, refer to
+<a href="https://github.com/NVIDIA/NeMo-Retriever/blob/26.08.1/nemo_retriever/helm/README.md#nim-operator-sub-stack">NIM Operator sub-stack</a>.</p>
+<h2 id="modulenotfounderror-no-module-named-open-clip-when-using-nemotron-parse">ModuleNotFoundError: No module named open_clip when using nemotron_parse<a class="headerlink" href="#modulenotfounderror-no-module-named-open-clip-when-using-nemotron-parse" title="Permanent link">&para;</a></h2>
+<p>When you run PDF extraction with <code>method="nemotron_parse"</code>, you might see an error similar to the following:</p>
+<div class="highlight"><pre><span></span><code>ModuleNotFoundError: No module named &#39;open_clip&#39;
+</code></pre></div>
+<p>The Nemotron Parse NIM client requires the <code>open_clip</code> Python module, provided by <code>open-clip-torch</code>. That package is not part of the default <code>nemo-retriever</code> install or the <code>[local]</code> extra.</p>
+<p>Install the dedicated PyPI extra before running Nemotron Parse extraction:</p>
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span><span class="s2">&quot;nemo-retriever[nemotron-parse]&quot;</span>
+</code></pre></div>
+<p>For local GPU inference with Nemotron Parse, combine extras:</p>
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span><span class="s2">&quot;nemo-retriever[local,nemotron-parse]&quot;</span>
+</code></pre></div>
+<p>Also refer to <a href="../../about/overview/">NeMo Retriever Library Overview</a> and <a href="../../get-started/prerequisites-support-matrix/#software-requirements">Pre-Requisites &amp; Support Matrix</a>.</p>
+<h2 id="extract-method-nemotron-parse-doesnt-support-image-files">Extract method nemotron-parse doesn't support image files<a class="headerlink" href="#extract-method-nemotron-parse-doesnt-support-image-files" title="Permanent link">&para;</a></h2>
+<p>Currently, extraction with Nemotron parse doesn't support image files, only scanned PDFs.
+To work around this issue, convert image files to PDFs before you use <code>method="nemotron_parse"</code>.</p>
+<h2 id="nemotron-parse-model-endpoint-mismatch">Nemotron Parse model and endpoint mismatch<a class="headerlink" href="#nemotron-parse-model-endpoint-mismatch" title="Permanent link">&para;</a></h2>
+<p>When you run PDF extraction with <code>method="nemotron_parse"</code>, a mismatched model and endpoint can fail with an error similar to the following:</p>
+<div class="highlight"><pre><span></span><code>HTTP 400: Content cannot be a plain string. The model does not support text input.
+</code></pre></div>
+<p>This can occur when you send a versioned self-hosted model (for example <code>nvidia/nemotron-parse-v1.2</code>) to the NVIDIA-hosted Build endpoint, which expects the image-only <code>nvidia/nemotron-parse</code> contract. The library may replace the raw HTTP error with a targeted model/contract mismatch hint.</p>
+<p>To use hosted Build, omit <code>nemotron_parse_model</code> so the library selects <code>nvidia/nemotron-parse</code> automatically, or set <code>nemotron_parse_model="nvidia/nemotron-parse"</code> explicitly. Send <code>nvidia/nemotron-parse-v1.2</code> only to a compatible self-hosted chat endpoint.</p>
+<p>Do not combine hosted Build and self-hosted endpoints in one <code>nemotron_parse_invoke_url</code> list. The library rejects this configuration because one workflow cannot send different model IDs and request contracts to individual endpoints. Setting <code>nemotron_parse_model</code> does not override this restriction. Use a homogeneous endpoint list, or configure separate ingestors or extraction workflows for hosted Build and self-hosted capacity. For more information, refer to <a href="../../get-started/prerequisites-support-matrix/#nemotron-parse-hosted-vs-self-hosted">Nemotron Parse: hosted Build and self-hosted NIM contracts</a>.</p>
+<h2 id="hosted-page-elements-nim-image-size-limits">Hosted Page Elements NIM image size limits<a class="headerlink" href="#hosted-page-elements-nim-image-size-limits" title="Permanent link">&para;</a></h2>
+<p><a href="https://build.nvidia.com/nvidia/nemotron-page-elements-v3">NVIDIA-hosted Page Elements NIM</a> endpoints on <code>ai.api.nvidia.com</code> accept only <strong>inline</strong> PNG or JPEG payloads. The matching build.nvidia.com model experience uses the same contract. The same <code>/v1/infer</code> request shape applies to hosted <strong>Table Structure</strong> and <strong>Graphic Elements</strong> object-detection NIMs.</p>
+<p>The <a href="https://docs.nvidia.com/nim/ingestion/object-detection/latest/api-reference.html">Object Detection NIM API reference</a> documents image URLs as <code>data:image/&lt;format&gt;;base64,&lt;data&gt;</code>. Hosted Page Elements inference does not accept NVCF Asset API identifiers in that <code>url</code> field.</p>
+<p>The following table summarizes inline payload limits by deployment:</p>
+<table>
+<thead>
+<tr>
+<th>Deployment</th>
+<th>Inline base64 limit</th>
+<th>If the image exceeds the limit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hosted (<code>build.nvidia.com</code>, <code>ai.api.nvidia.com</code>)</td>
+<td>About <strong>180,000 characters</strong> on the base64 portion of the data URL (roughly 180 KB; build.nvidia.com validates <code>len(image_b64) &lt; 180_000</code>)</td>
+<td>Resize or re-encode the image so the inline payload fits. Self-host the NIM if you need larger images. Do not use the NVCF Asset API as a hosted fallback.</td>
+</tr>
+<tr>
+<td>Self-hosted NIM container</td>
+<td>Higher; the NeMo Retriever client downscales HTTP payloads above <strong>512,000 characters</strong> before calling the NIM</td>
+<td>Resize or re-encode the source image, or rely on the client downscaling</td>
+</tr>
+</tbody>
+</table>
+<p>That API reference states only that "very large images may cause processing issues." For hosted integrations, treat <strong>180,000 characters</strong> as the inline cap unless NVIDIA publishes a different limit for your endpoint.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>The build.nvidia.com playground can tell you to use the NVCF Asset API when an image exceeds the inline cap. Creating and uploading an asset can succeed. Hosted Page Elements inference still rejects <code>data:image/&lt;format&gt;;asset_id,&lt;asset-id&gt;</code> with HTTP 422. That rejection occurs with or without the <code>NVCF-INPUT-ASSET-REFERENCES</code> header. There is no Asset API recovery path for this hosted endpoint.</p>
+</div>
+<h3 id="nemo-retriever-library-pipeline-users">NeMo Retriever Library pipeline users<a class="headerlink" href="#nemo-retriever-library-pipeline-users" title="Permanent link">&para;</a></h3>
+<p>When you route extraction to hosted Page Elements NIM URLs (for example <code>page_elements_invoke_url="https://ai.api.nvidia.com/v1/cv/nvidia/nemotron-page-elements-v3"</code>), the library:</p>
+<ul>
+<li>Renders PDF pages with default <code>render_mode="fit_to_model"</code> (targets about 1024 px on the long edge instead of full raster DPI).</li>
+<li>Downscales base64 page images before remote object-detection NIM HTTP calls when payloads exceed the client limit (512,000 characters for Page Elements and Table Structure).</li>
+</ul>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>The library downscales payloads to <strong>512,000</strong> characters before HTTP calls to object-detection NIMs. Hosted endpoints still reject inline base64 above <strong>180,000</strong> characters. Treat the lower hosted cap as the effective limit when <code>page_elements_invoke_url</code> points at <code>ai.api.nvidia.com</code>.</p>
+</div>
+<p>If you still receive <strong>422</strong> responses mentioning invalid image URLs on hosted endpoints, lower <code>dpi</code> in <code>ExtractParams</code> and keep <code>render_mode="fit_to_model"</code>. For very large standalone image inputs, preprocess the files before ingest. For parameter details, refer to the <a href="../../reference/nemo-retriever-api-reference/">Python API guide</a>.</p>
+<h3 id="direct-page-elements-nim-api-calls">Direct Page Elements NIM API calls<a class="headerlink" href="#direct-page-elements-nim-api-calls" title="Permanent link">&para;</a></h3>
+<p>When you call Page Elements NIM <strong>directly</strong>, send only inline base64. Direct calls include the build playground, curl, and custom integrations that do not go through the NeMo Retriever pipeline. The following example shows the required <code>input</code> payload:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;input&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;image_url&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;data:image/png;base64,&lt;BASE64_ENCODED_IMAGE&gt;&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Use this form only when <code>len(base64_image) &lt; 180_000</code>. If the encoded image is larger, resize or re-encode it to PNG or JPEG until the base64 string is under 180,000 characters. You can also self-host Page Elements NIM.</p>
+<p>Do not send <code>"url": "data:image/png;asset_id,&lt;assetId&gt;"</code>. Hosted Page Elements rejects that encoding with HTTP 422.</p>
+<p>Hosted calls require the same <a href="../../get-started/api-keys/#nvidia-api-key"><code>NVIDIA_API_KEY</code></a> you use for other build.nvidia.com NIM endpoints. For the request schema, refer to the <a href="https://docs.nvidia.com/nim/ingestion/object-detection/latest/api-reference.html">Object Detection NIM API reference</a>.</p>
+<p>Supported formats remain <strong>PNG</strong> and <strong>JPEG</strong>, encoded as <code>data:image/&lt;format&gt;;base64,&lt;data&gt;</code>. OpenAPI specs for Page Elements v2 and v3 are linked from the <a href="https://docs.nvidia.com/nim/ingestion/object-detection/latest/api-reference.html#openapi-reference-for-page-elements">Object Detection NIM API reference</a>.</p>
+<h2 id="too-many-open-files-error">Too many open files error<a class="headerlink" href="#too-many-open-files-error" title="Permanent link">&para;</a></h2>
+<p>In rare cases, when you run a job you might an see an error similar to <code>too many open files</code> or <code>max open file descriptor</code>.
+This error occurs when the open file descriptor limit for your service user account is too low.
+To resolve the issue, set or raise the maximum number of open file descriptors (<code>-n</code>) by using the <a href="https://ss64.com/bash/ulimit.html">ulimit</a> command.
+Before you change the <code>-n</code> setting, consider the following:</p>
+<ul>
+<li>Apply the <code>-n</code> setting directly to the user (or the environment of the pod or process) that runs your ingest service.</li>
+<li>For <code>-n</code> we recommend 10,000 as a baseline, but you might need to raise or lower it based on your actual usage and system configuration.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="nb">ulimit</span><span class="w"> </span>-n<span class="w"> </span><span class="m">10000</span>
+</code></pre></div>
+<h2 id="triton-server-info-messages-incorrectly-logged-as-errors">Triton server INFO messages incorrectly logged as errors<a class="headerlink" href="#triton-server-info-messages-incorrectly-logged-as-errors" title="Permanent link">&para;</a></h2>
+<p>Self-hosted NIM containers can wrap Triton server INFO lines as ERROR in
+the container log. The logger can show a filename such as <code>nimutils.py</code>.
+That logger is inside the NIM image. It is not part of the NeMo Retriever
+Library source.</p>
+<p>You can ignore messages whose Triton payload starts with <code>I</code> (INFO).
+Treat them as informational. They do not mean ingest failed.</p>
+<div class="highlight"><pre><span></span><code>ERROR 2025-04-24 22:49:44.268 nimutils.py:68] I0424 22:49:44.265292 98 cache_manager.cc:480] &quot;Create CacheManager with cache_dir: &#39;/opt/tritonserver/caches&#39;&quot;
+ERROR 2025-04-24 22:49:44.431 nimutils.py:68] I0424 22:49:44.431796 98 pinned_memory_manager.cc:277] &quot;Pinned memory pool is created at &#39;0x7f8e4a000000&#39; with size 268435456&quot;
+</code></pre></div>
+<p>If a real failure occurs, inspect the NIM pod or Compose container logs for
+the same timestamp. Do not treat these startup INFO lines as the root cause.</p>
+<h2 id="lancedb-concurrent-index-creation">LanceDB index creation fails during concurrent Helm ingestion<a class="headerlink" href="#lancedb-concurrent-index-creation" title="Permanent link">&para;</a></h2>
+<p>Concurrent ingest workers can finish extraction at nearly the same time and
+send overlapping writes to the VectorDB service. In affected releases, those
+writes can rebuild the LanceDB vector or full-text-search index concurrently.
+LanceDB rejects one of the competing commits with an error similar to the
+following:</p>
+<div class="highlight"><pre><span></span><code>Retryable commit conflict for version &lt;version&gt;:
+This CreateIndex transaction was preempted by concurrent transaction CreateIndex.
+Please retry.
+</code></pre></div>
+<p>Upgrade to a NeMo Retriever Library release that separates row commits from
+index maintenance. The VectorDB service admits concurrent
+<code>/internal/vectordb/write</code> requests that reach the same pod. Each request
+commits its rows under a short-lived lock, so those rows are durable as soon
+as the commit lands. LanceDB search also scans rows that no index covers yet,
+so a committed row is queryable before the next rebuild includes it.</p>
+<p>Only index maintenance is serialized, because LanceDB rejects competing index
+commits. Concurrent writers share one coalesced rebuild: a rebuild that starts
+after a batch was committed also indexes that batch. A write therefore never
+waits behind another writer's index build. There is no Helm value to configure
+this behavior.</p>
+<p>An index-readiness wait that expires no longer fails the write. The VectorDB
+pod logs a warning similar to the following, and the committed rows stay
+queryable until the next rebuild covers them:</p>
+<div class="highlight"><pre><span></span><code>LanceDB index on column &#39;vector&#39; did not report coverage of 512 row(s) within
+0:01:00. Queries still scan unindexed rows and the next rebuild will cover them.
+</code></pre></div>
+<p>Keep the VectorDB deployment at one replica. Row and index serialization is
+local to a single VectorDB process. It does not coordinate writes across
+multiple pods or independently deployed processes that share a LanceDB
+directory.</p>
+<p>If a request failed before the upgrade, inspect the table and the ingest job
+before you resubmit it. A write can append rows before a later index rebuild
+fails. The legacy append path does not deduplicate rows, so rerunning the same
+input can create duplicate rows.</p>
+<h2 id="vectordb-write-not-acknowledged">Ingest fails with a VectorDB write error<a class="headerlink" href="#vectordb-write-not-acknowledged" title="Permanent link">&para;</a></h2>
+<p>A worker posts extracted records to the VectorDB service before it reports a
+document as complete. When the VectorDB service rejects that write or does not
+acknowledge it within the configured timeout, the document fails with an error
+similar to the following:</p>
+<div class="highlight"><pre><span></span><code>RuntimeError: VectorDB write failed for report.pdf: &lt;error&gt;. The extracted rows
+are not confirmed durable, so the document is not queryable.
+</code></pre></div>
+<p>A write into a managed collection reports
+<code>Collection write failed for report.pdf: &lt;error&gt;</code> instead.</p>
+<p>The worker pod logs the underlying failure at error level:</p>
+<div class="highlight"><pre><span></span><code>Failed to POST 128 records to vectordb for report.pdf: &lt;error&gt;
+</code></pre></div>
+<p>Earlier releases logged this failure as a warning for writes to the legacy
+fixed table and still reported the document as <code>completed</code> with a positive row
+count. Queries then returned no rows for a document that the ingest job called
+successful. A failed document now means the rows are not confirmed durable.</p>
+<p>Complete the following checks:</p>
+<ol>
+<li>Run <code>kubectl get pods --namespace &lt;namespace&gt;</code> and confirm the VectorDB pod is <code>Running</code> and ready. A pod that is restarting or unschedulable does not accept writes.</li>
+<li>Read the VectorDB pod logs for the same records. A rejected write reports a request or backend error. A write that the worker abandoned on timeout can still be in progress on the VectorDB pod.</li>
+<li>If writes time out under load or on slow storage, raise the acknowledgement timeout. <code>serviceConfig.vectordb.writeTimeoutSeconds</code> defaults to <code>300</code> seconds and covers the row commit plus the index maintenance that follows it.</li>
+<li>Resubmit the failed documents after the write path is healthy. A write that timed out on the worker can still have committed its rows, and the legacy append path does not deduplicate rows, so check the table row count first.</li>
+</ol>
+<p>To raise the timeout on an existing release, run the following command:</p>
+<div class="highlight"><pre><span></span><code>helm<span class="w"> </span>upgrade<span class="w"> </span>retriever<span class="w"> </span>./nemo_retriever/helm<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--reuse-values<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--set<span class="w"> </span>serviceConfig.vectordb.writeTimeoutSeconds<span class="o">=</span><span class="m">900</span>
+</code></pre></div>
+<p>For the rendered service key and sibling VectorDB values, refer to <a href="https://github.com/NVIDIA/NeMo-Retriever/blob/26.08.1/nemo_retriever/helm/README.md#service-configuration-rendered-into-retriever-serviceyaml">Service configuration</a>.</p>
+<h2 id="helm-pending-pvcs">Helm install succeeds but PersistentVolumeClaims stay Pending<a class="headerlink" href="#helm-pending-pvcs" title="Permanent link">&para;</a></h2>
+<p><code>helm install</code> can report <code>STATUS: deployed</code> while every default PersistentVolumeClaim stays <code>Pending</code>. That status means Helm rendered the release. It does not mean the retriever service, VectorDB, or core NIM workloads can schedule.</p>
+<p>A representative claim event looks like the following:</p>
+<div class="highlight"><pre><span></span><code>Type    Reason         From                          Message
+Normal  FailedBinding  persistentvolume-controller   no persistent volumes available for this claim and no storage class is set
+</code></pre></div>
+<p>This event means the claim omitted <code>storageClassName</code> and the cluster has neither a default StorageClass nor a compatible classless persistent volume.</p>
+<p>Complete the following checks:</p>
+<ol>
+<li>Run <code>kubectl get storageclass</code> and <code>kubectl get pv</code>. Confirm a default StorageClass, a named class you set on every default claim, or compatible <code>Available</code> persistent volumes.</li>
+<li>Run <code>kubectl get pvc --namespace &lt;namespace&gt;</code>. A default install creates seven claims. All seven must reach <code>Bound</code> before the functional workloads can start.</li>
+<li>If you intended a named StorageClass, set the three chart-managed paths and the four per-NIM <code>nimOperator.&lt;key&gt;.storage.pvc.storageClass</code> paths. Do not set only <code>nimOperator.nimCache.pvc.storageClass</code>. That chart-level value is not applied to the core NIMCache resources.</li>
+<li>After you add a default StorageClass or compatible volumes, confirm the claims become <code>Bound</code>. If they remain <code>Pending</code>, uninstall and reinstall after the storage strategy is in place.</li>
+</ol>
+<p>For the default claim list, Helm value paths, and preflight commands, refer to <a href="../../get-started/prerequisites-support-matrix/#kubernetes-helm-storage-requirements">Kubernetes Helm Storage Requirements</a> and <a href="https://github.com/NVIDIA/NeMo-Retriever/blob/26.08.1/nemo_retriever/helm/README.md#persistent-storage-prerequisite">Persistent storage prerequisite</a>.</p>
+<h2 id="helm-pending-gpus">Core NIM pods stay Pending for GPU<a class="headerlink" href="#helm-pending-gpus" title="Permanent link">&para;</a></h2>
+<p><code>helm install</code> can report <code>STATUS: deployed</code> while one or more core NIM pods stay <code>Pending</code>. The default chart creates four NIMService workloads. Each requests <code>nvidia.com/gpu: 1</code>. On a conventional cluster without MIG or time-slicing, the scheduler needs four allocatable GPU slots across eligible nodes.</p>
+<p>A representative pod event looks like the following:</p>
+<div class="highlight"><pre><span></span><code>Warning  FailedScheduling  default-scheduler  0/1 nodes are available:
+  1 Insufficient nvidia.com/gpu.
+</code></pre></div>
+<p>Complete the following checks:</p>
+<ol>
+<li>Run <code>kubectl get nodes -o custom-columns=NAME:.metadata.name,GPU:.status.allocatable.nvidia\.com/gpu</code> and sum <code>GPU</code> across eligible nodes. A default core install needs four slots across the cluster. Four one-GPU nodes are enough. A single node needs four slots only when you pack all four core NIMs onto one physical GPU with sharing and placement constraints.</li>
+<li>Run <code>kubectl get pods --namespace &lt;namespace&gt;</code> and <code>kubectl describe pod &lt;nim-pod&gt;</code>. Confirm the Pending pods are the core NIMServices (<code>nemotron-page-elements-v3</code>, <code>nemotron-table-structure-v1</code>, <code>nemotron-ocr-v2</code>, and <code>nemotron-3-embed-1b</code>).</li>
+<li>Either add GPU capacity so four slots are allocatable across the cluster, or configure GPU Operator time-slicing with at least four replicas before you reinstall. Time-slicing creates logical slots. MIG is an advanced GPU Operator configuration outside this chart. For one-GPU placement, cluster-wide oversubscription, and MIG constraints, refer to <a href="https://github.com/NVIDIA/NeMo-Retriever/blob/26.08.1/nemo_retriever/helm/README.md#gpu-scheduling-prerequisite">GPU scheduling prerequisite</a>.</li>
+<li>After sharing or extra GPUs are in place, confirm the four core NIM pods reach <code>Running</code>.</li>
+</ol>
+<p>For VRAM versus scheduling, the time-slicing ConfigMap, and ClusterPolicy patch, refer to <a href="../../get-started/prerequisites-support-matrix/#kubernetes-helm-gpu-scheduling">Kubernetes Helm GPU scheduling</a> and <a href="https://github.com/NVIDIA/NeMo-Retriever/blob/26.08.1/nemo_retriever/helm/README.md#gpu-scheduling-prerequisite">GPU scheduling prerequisite</a>.</p>
+<h2 id="helm-split-topology-startup-deadlock">Split topology Helm install or upgrade times out with Deployments not ready<a class="headerlink" href="#helm-split-topology-startup-deadlock" title="Permanent link">&para;</a></h2>
+<p><code>helm upgrade --install --wait</code> can time out in split topology
+(<code>topology.mode: split</code>) with errors similar to the following:</p>
+<div class="highlight"><pre><span></span><code>Release &quot;&lt;release&gt;&quot; failed:
+resource Deployment/&lt;release&gt;-nemo-retriever-gateway not ready
+resource Deployment/&lt;release&gt;-nemo-retriever-realtime not ready
+resource Deployment/&lt;release&gt;-nemo-retriever-batch not ready
+context deadline exceeded
+</code></pre></div>
+<p>This deadlock occurs when the gateway readiness probe uses deep
+<code>GET /v1/health</code>, which returns HTTP <code>503</code> until realtime and batch workers are
+healthy, while worker Pods cannot start until their <code>wait-for-gateway</code> init
+container reaches the gateway's shallow <code>GET /v1/live</code> endpoint. The externally
+exposed gateway Service does not publish endpoints for an unready Pod, so neither
+side can become ready on a clean install.</p>
+<p>The chart renders an internal gateway startup Service named
+<code>&lt;release&gt;-nemo-retriever-gateway-startup</code> with <code>publishNotReadyAddresses: true</code>.
+Worker init containers poll <code>/v1/live</code> through that Service so startup completes
+without manual intervention. Client traffic continues to use the
+readiness-gated gateway Service.</p>
+<p>If you run an older chart that does not render the startup Service, you can
+unblock the install with a one-time patch on the gateway Service:</p>
+<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>patch<span class="w"> </span>service<span class="w"> </span>&lt;release&gt;-nemo-retriever-gateway<span class="w"> </span>--type<span class="o">=</span>merge<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-p<span class="w"> </span><span class="s1">&#39;{&quot;spec&quot;:{&quot;publishNotReadyAddresses&quot;:true}}&#39;</span>
+</code></pre></div>
+<p>Upgrade to a chart version that includes the startup Service so you do not need
+to repeat that patch after every reinstall. Refer to <a href="https://github.com/NVIDIA/NeMo-Retriever/blob/26.08.1/nemo_retriever/helm/README.md#health-probes">Health probes</a> and <a href="https://github.com/NVIDIA/NeMo-Retriever/blob/26.08.1/nemo_retriever/helm/README.md#service-networking">Service networking</a> in the Helm chart README.</p>
+<h2 id="helm-nimcache-modelpuller-immutable">Helm upgrade fails when changing a NIM image repository or tag<a class="headerlink" href="#helm-nimcache-modelpuller-immutable" title="Permanent link">&para;</a></h2>
+<p><code>helm upgrade</code> can fail when you change <code>nimOperator.&lt;key&gt;.image.repository</code> or <code>nimOperator.&lt;key&gt;.image.tag</code> on an existing release. The chart reuses the <code>NIMCache</code> name, for example <code>nemotron-page-elements-v3</code>, while <code>spec.source.ngc.modelPuller</code> changes to the new <code>repository:tag</code> value.</p>
+<p>The NIM Operator <code>NIMCache</code> CRD marks <code>modelPuller</code> immutable. Kubernetes rejects the update with a message similar to the following:</p>
+<div class="highlight"><pre><span></span><code>modelPuller is an immutable field. Please create a new NIMCache resource instead when you want to change this container.
+</code></pre></div>
+<p>Helm can apply other release resources before that rejection. The <code>NIMCache</code> then remains on the old image while the rest of the release has moved.</p>
+<p>Do not retry <code>helm upgrade</code> until you delete the existing <code>NIMCache</code>. Complete the following steps:</p>
+<ol>
+<li>Drain ingest traffic that depends on the affected NIM.</li>
+<li>Run <code>kubectl get nimcache &lt;name&gt; --namespace &lt;namespace&gt;</code> and confirm the live <code>modelPuller</code> value differs from the new <code>repository:tag</code>.</li>
+<li>Delete the <code>NIMCache</code>. Helm <code>keep</code> annotations do not block <code>kubectl delete</code>.</li>
+<li>If the operator-created PVC remains, delete it so the new image re-pulls weights. Default claim names use a <code>-pvc</code> suffix, for example <code>nemotron-page-elements-v3-pvc</code>.</li>
+<li>Re-run <code>helm upgrade</code> with the new repository or tag. Helm creates a new <code>NIMCache</code>.</li>
+<li>Wait until the new cache is ready before you send traffic.</li>
+</ol>
+<p>The affected NIM is unavailable during re-cache. Repeat the sequence for every NIM whose image changes.</p>
+<p>Changing <code>service.image.repository</code> or <code>service.image.tag</code> does not use <code>NIMCache</code> and is not subject to this rule.</p>
+<p>For default cache names, PVC cleanup, and the full upgrade sequence, refer to <a href="https://github.com/NVIDIA/NeMo-Retriever/blob/26.08.1/nemo_retriever/helm/README.md#changing-nim-image-repository-or-tag">Changing a NIM image repository or tag</a>.</p>
+<h2 id="helm-nim-secret-names">NIMCache or NIMService still uses ngc-secret after a global Secret rename<a class="headerlink" href="#helm-nim-secret-names" title="Permanent link">&para;</a></h2>
+<p>Retriever Pods inherit <code>ngcImagePullSecret.name</code> and <code>ngcApiSecret.name</code>. Empty per-NIM <code>image.pullSecrets</code> and <code>authSecret</code> inherit the same names.</p>
+<p>If NIMCache or NIMService still shows <code>ngc-secret</code> or <code>ngc-api</code> after a rename, you still have a non-empty per-NIM override. The retriever Deployment can become Ready while NIM model-download Jobs and NIM Pods fail because they reference Secrets that do not exist.</p>
+<p>Complete the following checks:</p>
+<ol>
+<li>Render the chart with the NIM Operator CRDs enabled. Inspect <code>pullSecret</code> on every <code>NIMCache</code> and <code>pullSecrets</code> on every <code>NIMService</code>, plus <code>authSecret</code> on both.</li>
+<li>Confirm those fields match Secrets that exist in the release namespace.</li>
+<li>If a NIM still lists <code>ngc-secret</code> or <code>ngc-api</code> after you renamed the global Secret names, clear <code>nimOperator.&lt;key&gt;.image.pullSecrets</code> and <code>nimOperator.&lt;key&gt;.authSecret</code>, or set them to the new names. Empty values inherit the global names.</li>
+<li>Top-level <code>imagePullSecrets</code> applies only to Retriever Pods. It does not update NIM Operator custom resources.</li>
+</ol>
+<p>For value paths and a rename example, refer to <a href="https://github.com/NVIDIA/NeMo-Retriever/blob/26.08.1/nemo_retriever/helm/README.md#use-externally-managed-secrets">Use externally managed Secrets</a> and <a href="https://github.com/NVIDIA/NeMo-Retriever/blob/26.08.1/nemo_retriever/helm/README.md#secrets">Secrets</a> in the Helm chart README.</p>
+<h2 id="agentic-auto-tool-choice">Agentic retrieval fails with auto tool choice HTTP 400<a class="headerlink" href="#agentic-auto-tool-choice" title="Permanent link">&para;</a></h2>
+<p><code>retriever query --agentic</code>, <code>POST /v1/query</code> with <code>agentic=true</code>, or the MCP <code>agentic_query</code> tool can fail on the first LLM call with HTTP 400 from a self-hosted chat-completions NIM:</p>
+<div class="highlight"><pre><span></span><code>&quot;auto&quot; tool choice requires --enable-auto-tool-choice and --tool-call-parser to be set
+</code></pre></div>
+<p>The CLI then exits with <code>Agentic retrieval failed (llm_call_failed)</code>.</p>
+<p>The Helm <code>answer_llm</code> Super-49B NIM is not tool-call ready by default. Add <code>--enable-auto-tool-choice --tool-call-parser llama3_json</code> to <code>NIM_PASSTHROUGH_ARGS</code> and set <code>serviceConfig.agentic</code> for service mode. NVIDIA-hosted Build endpoints do not need this change. <code>POST /v1/answer</code> is a separate path and does not require tool calling.</p>
+<p>For the copy-paste Helm values and CLI command, refer to <a href="../../collections/workflow-agentic-retrieval/#self-hosted-helm-super-49b">Self-hosted Helm Super-49B</a>.</p>
+<h2 id="related-topics">Related Topics<a class="headerlink" href="#related-topics" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../../get-started/prerequisites-support-matrix/">Pre-Requisites &amp; Support Matrix</a></li>
+<li><a href="../../get-started/prerequisites-support-matrix/#kubernetes-helm-storage-requirements">Kubernetes Helm Storage Requirements</a></li>
+<li><a href="../../get-started/prerequisites-support-matrix/#kubernetes-helm-gpu-scheduling">Kubernetes Helm GPU scheduling</a></li>
+<li><a href="../../deploy/deployment-options/">Deployment options</a></li>
+<li><a href="https://github.com/NVIDIA/NeMo-Retriever/blob/26.08.1/nemo_retriever/helm/README.md">Deploy with Helm</a></li>
+<li><a href="https://github.com/NVIDIA/NeMo-Retriever/blob/26.08.1/nemo_retriever/helm/README.md#changing-nim-image-repository-or-tag">Changing a NIM image repository or tag</a></li>
+<li><a href="https://github.com/NVIDIA/NeMo-Retriever/blob/26.08.1/nemo_retriever/helm/README.md#use-externally-managed-secrets">Use externally managed Secrets</a></li>
+<li><a href="../../collections/workflow-agentic-retrieval/#self-hosted-helm-super-49b">Workflow: Agentic retrieval</a></li>
+<li><a href="../../get-started/">About getting started</a> (prerequisites and deployment)</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../evaluate-on-your-data/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Evaluate on your own documents">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Evaluate on your own documents
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../faq/" class="md-footer__link md-footer__link--next" aria-label="Next: FAQ">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                FAQ
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      &copy; Copyright 2023-2026 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+
+    </div>
+  
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/NVIDIA/NeMo-Retriever/" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["content.code.annotate", "navigation.indexes", "navigation.instant", "navigation.path", "navigation.instant.prefetch", "navigation.top", "navigation.footer", "navigation.expand", "toc.follow", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"alias": true, "default": "latest", "provider": "mike"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
